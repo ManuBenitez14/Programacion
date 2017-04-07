@@ -64,7 +64,7 @@ public class Ejercicio02 {
                 break;
             case 2:
                     System.out.println("Mostrar las puntaciones de una pelicula");
-                    muestraPuntacion(peliculas);
+                    muestraPuntuacion(peliculas);
                 break;
             case 3:
                     System.out.println("Modificar el nombre de una pelicula");
@@ -72,10 +72,11 @@ public class Ejercicio02 {
                 break;
             case 4:
                     System.out.println("Modificar una puntacion de una pelicula");
-                    
+                    cambiaPuntuacion(peliculas);
                 break;
             case 5:
                 System.out.println("Mostrar la puntacion mas alta de una pelicula");
+                System.out.println("la puntuacion mas alta es :"+maxPuntuacion(peliculas));
                 
             case 6:
                 System.out.println("Pedir un número y mostrar el nombre de aquellas películas donde su puntuación media sea como mínimo el número indicado.");
@@ -133,7 +134,7 @@ public class Ejercicio02 {
         
         }
         
-        public static void muestraPuntacion(String [][] peliculas) throws IOException{
+        public static void muestraPuntuacion(String [][] peliculas) throws IOException{
            int peli,i;
            peli = muestraPeliculas(peliculas);
            System.out.println("Puntaciones"); 
@@ -156,6 +157,51 @@ public class Ejercicio02 {
         }
         
         
+        public static void cambiaPuntuacion(String[][] peliculas) throws IOException{
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            int punto;
+            
+            
+            
+            int opcion;
+            
+            for(int k=0; k<peliculas.length;k++ ){
+            System.out.println((k+1)+" "+peliculas[k][0]);
+            }
+            System.out.println("Elige 1 pelicula: ");
+            String op = br.readLine();
+            opcion = Integer.parseInt(op);
+          
+            opcion = Integer.parseInt(op);
+            System.out.println("¿Que puntacion quieres cambiar?: ");
+            op = br.readLine();
+            punto = Integer.parseInt(op);
+            System.out.println("Introduce la nueva puntuacion: ");
+            peliculas [opcion-1][punto] =br.readLine();
+            muestraPuntuacion(peliculas);
+        }
+        
+        
+        
+        public static int maxPuntuacion(String [][] peliculas) throws IOException{
+           
+            int peli,max,i,num=0;
+            peli = muestraPeliculas(peliculas);
+            String op = peliculas[peli][1];
+            max = Integer.parseInt(op);
+            
+            for(i=1; i<peliculas[0].length;i++){
+                op = peliculas[peli][i];
+                num = Integer.parseInt(op);
+                if(max<num){
+                max=num;
+                }   
+            
+            }
+        return max;
+        
+        
+        } 
 }      
 
 
