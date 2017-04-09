@@ -18,6 +18,7 @@ import java.io.InputStreamReader;
  */
 public class Archivos {
     public static void main(String[] args) throws IOException {
+        
         String rutaProyecto = System.getProperty("user.dir");
         String sep = File.separator;
         // Crear un archivo y poner un titulo
@@ -29,9 +30,9 @@ public class Archivos {
         archivo.createNewFile();
     
         
-        FileWriter fw = new FileWriter(archivo); //Stream conectado al fichero a escribir.
-        BufferedWriter bw = new BufferedWriter(fw); //Buffer que almacena datos hacia el stream
-        //PEDIMOS TEXTO AL USUARIO
+        FileWriter fw = new FileWriter(archivo); 
+        BufferedWriter bw = new BufferedWriter(fw); 
+        //pedimos un texto al usuario
         System.out.println("Introduce el texto del nuevo documento. Finaliza con un 0");
         String s = System.getProperty("line.separator");
         String texto = br.readLine();
@@ -39,8 +40,8 @@ public class Archivos {
             bw.write(texto+s); //guarda los datos en el buffer
             texto = br.readLine();
         }
-        bw.flush(); //envia los datos que queden al buffer
-        bw.close(); //se liberan los recursos asignados al outputStream
+        bw.flush();
+        bw.close(); 
         
         
         
